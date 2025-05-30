@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EqualsysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Karyawan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamaDepan" Type="varchar" MaxLength="50" />
+          <Property Name="NamaTengah" Type="varchar" MaxLength="50" />
+          <Property Name="NamaBelakang" Type="varchar" MaxLength="50" />
+          <Property Name="TanggalLahir" Type="date" Nullable="false" />
+          <Property Name="JenisKelamin" Type="varchar" MaxLength="50" />
+          <Property Name="Alamat" Type="varchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateDate" Type="date" />
+          <Property Name="Pekerjaan" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Pekerjaan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamaPekerjaan" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TanggalMulai" Type="date" Nullable="false" />
+          <Property Name="TanggalBerakhir" Type="date" Nullable="false" />
+          <Property Name="Gaji" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateDate" Type="date" />
+        </EntityType>
+        <EntityContainer Name="EqualsysModelStoreContainer">
+          <EntitySet Name="Tbl_Karyawan" EntityType="Self.Tbl_Karyawan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Pekerjaan" EntityType="Self.Tbl_Pekerjaan" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EqualsysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Pekerjaan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamaPekerjaan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TanggalMulai" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TanggalBerakhir" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gaji" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="EqualsysEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Pekerjaan" EntityType="Self.Tbl_Pekerjaan" />
+          <EntitySet Name="Tbl_Karyawan" EntityType="EqualsysModel.Tbl_Karyawan" />
+        </EntityContainer>
+        <EntityType Name="Tbl_Karyawan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamaDepan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NamaTengah" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NamaBelakang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TanggalLahir" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="JenisKelamin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Alamat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="Pekerjaan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EqualsysModelStoreContainer" CdmEntityContainer="EqualsysEntities1">
+          <EntitySetMapping Name="Tbl_Pekerjaan">
+            <EntityTypeMapping TypeName="EqualsysModel.Tbl_Pekerjaan">
+              <MappingFragment StoreEntitySet="Tbl_Pekerjaan">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NamaPekerjaan" ColumnName="NamaPekerjaan" />
+                <ScalarProperty Name="TanggalMulai" ColumnName="TanggalMulai" />
+                <ScalarProperty Name="TanggalBerakhir" ColumnName="TanggalBerakhir" />
+                <ScalarProperty Name="Gaji" ColumnName="Gaji" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Karyawan">
+            <EntityTypeMapping TypeName="EqualsysModel.Tbl_Karyawan">
+              <MappingFragment StoreEntitySet="Tbl_Karyawan">
+                <ScalarProperty Name="Pekerjaan" ColumnName="Pekerjaan" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Alamat" ColumnName="Alamat" />
+                <ScalarProperty Name="JenisKelamin" ColumnName="JenisKelamin" />
+                <ScalarProperty Name="TanggalLahir" ColumnName="TanggalLahir" />
+                <ScalarProperty Name="NamaBelakang" ColumnName="NamaBelakang" />
+                <ScalarProperty Name="NamaTengah" ColumnName="NamaTengah" />
+                <ScalarProperty Name="NamaDepan" ColumnName="NamaDepan" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

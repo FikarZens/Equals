@@ -1,0 +1,110 @@
+﻿.my-error-class {
+        color: Red;
+        font-style: italic;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .attachDiv {
+        _height: expression( this.scrollHeight > 332 ? "333px" : "auto" ); /* sets max-height for IE6 */
+        max-height: 333px; /* sets max-height value for all standards-compliant browsers */
+        overflow: scroll;
+    }
+
+    .fileCss {
+        position: relative;
+        box-sizing: border-box !important;
+        cursor: pointer;
+        font-size: 12px;
+        padding: 1px;
+        resize: none;
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+        transition: background-color 100ms linear 0s;
+        border-color: #e5e5e5;
+        background: #ffffff none repeat scroll 0 0;
+        border-color: #e5e5e5;
+        color: #767676;
+        font-family: "segoe ui",arial,sans-serif;
+        line-height: 20px;
+    }
+
+.field-validation-error {
+    background: #fe9b91 none repeat scroll 0 0 !important;
+    /*border: 1px solid #fe402b !important;*/
+    color: #691715 !important;
+    padding: 4px !important;
+}
+
+.bottomSpace-5 {
+    margin-bottom: 5px !important;
+}
+
+.ckbox {
+    opacity: 0.6 !important;
+}
+
+.grad-Body {
+    background: #0b1517;
+    background: -webkit-linear-gradient(left top, #0b1517, #000000);
+    background: -o-linear-gradient(bottom right, #0b1517, #000000);
+    background: -moz-linear-gradient(bottom right, #0b1517, #000000);
+    background: linear-gradient(to bottom right, #0b1517, #000000);
+}
+
+.badge-custom {
+    border-radius: 10px;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 10px;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.no-borderradius {
+    border-radius: 0px !important;
+}
+
+.panel-bg-primary {
+    background-color: #80c641 !important;
+    color: #fff !important;
+}
+
+.panel-bg-dark {
+    background-color: #323548 !important;
+    color: #fff !important;
+}
+
+.input-group-addon .small {
+    font-size: 10pt !important;
+}
+
+.medium-custom {
+    font-size: 95% !important;
+}
+
+
+.green-container {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #cfe9b7 none repeat scroll 0 0;
+    border-color: #9ad268;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 0;
+    padding: 15px;
+}
+
+.feature-icon img {
+    height: 68px;
+    margin-top: 5px !important;
+}

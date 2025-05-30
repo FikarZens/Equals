@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Equalsys.Models.Tbl_Karyawan>
+@{
+    ViewBag.Title = "Home Page";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Karyawan</title>
+</head>
+<body>
+    <hr />
+    <hr />
+    <h4>
+        <b>DASHBOARD APPLICATION</b>
+    </h4>
+    <hr />
+    
+    <table class="table table-bordered table-hover  table-sm" name="datatable1" id="datatable1" style="font-size:7pt;">
+        <thead>
+            <tr class="bg-primary">
+                @*<th>ID</th>*@
+                <th>Nama Depan</th>
+                <th>Nama Tengah</th>
+                <th>Nama Belakang</th>
+                <th>Pekerjaan</th>
+                <th>Alamat</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var items in Model)
+            {
+            <tr>
+                @*<td>@items.Id</td>*@
+                <td>@items.NamaDepan</td>
+                <td>@items.NamaTengah</td>
+                <td>@items.NamaBelakang</td>
+                <td>@items.Pekerjaan</td>
+                <td>@items.Alamat</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+
+</body>
+
+
+</html>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $('#datatable1').dataTable({
+        });
+    </script>
+}

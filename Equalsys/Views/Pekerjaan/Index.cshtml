@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Equalsys.Models.Tbl_Pekerjaan>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Pekerjaan</title>
+</head>
+<body>
+    <h1>Pekerjaan List</h1>
+    <hr/>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <hr />
+    <table class="table table-hover table-responsive" id="datatable1" style="font-size:7pt;">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.NamaPekerjaan)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.TanggalMulai)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.TanggalBerakhir)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Gaji)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var Item in Model)
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Item.Id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Item.NamaPekerjaan)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Item.TanggalMulai)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Item.TanggalBerakhir)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Item.Gaji)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Item.Status)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = Item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = Item.Id })
+                </td>
+            </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</body>
+
+
+</html>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $('#datatable1').dataTable({
+        });
+    </script>
+}

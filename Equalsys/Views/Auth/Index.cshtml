@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Equalsys.Models.LoginModel>
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<link href="~/Assets/cssloginimgresponsive.css" rel="stylesheet" />*@
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: grey;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .bg-img {
+            /* The image used */
+            min-height: 380px;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Add styles to the form container */
+        .container {
+            right: 0;
+            margin: 20px;
+            max-width: 300px;
+            max-height: 380px;
+            padding: 16px;
+            background-color: #ffffff;
+            position: absolute;
+            top: 30%;
+            left: 47%;
+            margin-top: -100px; /* this is half the height of your div*/
+            margin-left: -100px; /*this is half of width of your div*/
+            opacity: 0.8;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #b5b3b3;
+        }
+
+            input[type=text]:focus, input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+        /* Set a style for the submit button */
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 1;
+        }
+
+            .btn:hover {
+                opacity: 1;
+            }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="bg-img">
+            <h1 style="text-align: center;">Login</h1>
+            <label for="email"><b>Email</b></label>
+            <input id="UserName" name="UserName" value="admin" type="text" required />
+
+            <label for="psw"><b>Password</b></label>
+            <input id="Password" name="Password" value="admin" type="password" required />
+
+            <button type="submit" value="Login" class="btn">Login</button>
+            @ViewData["Message"]
+        </div>
+    }
+</body>
+</html>
+

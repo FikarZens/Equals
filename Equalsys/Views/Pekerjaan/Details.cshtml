@@ -1,0 +1,102 @@
+﻿@model Equalsys.Models.Tbl_Pekerjaan
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    @using (Html.BeginForm("Edit", "Pekerjaan", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+    <h1>Pekerjaan Details</h1>
+        <hr />
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NamaPekerjaan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NamaPekerjaan, new { htmlAttributes = new { @class = "form-control", @readonly = "ReadOnly" } })
+                    @Html.ValidationMessageFor(model => model.NamaPekerjaan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TanggalMulai, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBox("TanggalMulai", Model.TanggalMulai, new
+               {
+                   @type = "date",
+                   @class = "form-control",
+                   @readonly = "ReadOnly",
+                   //data_date_format = "yyyy-mm-dd",
+                   @Value = Model.TanggalMulai.ToString("yyyy-MM-dd")
+               })
+                    @Html.ValidationMessageFor(model => model.TanggalMulai, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TanggalBerakhir, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBox("TanggalBerakhir", Model.TanggalBerakhir, new
+               {
+                   @type = "date",
+                   @class = "form-control"
+                   ,
+                   @readonly = "ReadOnly",
+                   //data_date_format = "yyyy-mm-dd",
+                   @Value = Model.TanggalBerakhir.ToString("yyyy-MM-dd")
+               })
+                    @Html.ValidationMessageFor(model => model.TanggalBerakhir, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Gaji, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Gaji, new { @class = "form-control input-sm bottomSpace-5", @style = "width: 100%;", @readonly = "ReadOnly", required = "required" })
+                    @Html.ValidationMessageFor(model => model.Gaji, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Status", (IEnumerable<SelectListItem>)ViewBag.Status, new { @class = "form-control", @readonly = "ReadOnly" })
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.Error
+        </div>
+    }
+
+    @if (ViewBag.valid != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @ViewBag.valid
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Edit", "Edit", new { Id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
+

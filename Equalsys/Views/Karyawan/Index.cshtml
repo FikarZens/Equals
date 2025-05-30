@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Equalsys.Models.Tbl_Karyawan>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Personal</title>
+</head>
+<body>
+    <h1>Karyawan List</h1>
+    <hr/>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <hr />
+    <table class="table table-hover table-responsive" id="datatable1" style="font-size:7pt;">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.NamaDepan)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.NamaTengah)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.NamaBelakang)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Pekerjaan)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Alamat)
+                </th>
+
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var Item in Model)
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Item.Id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Item.NamaDepan)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Item.NamaTengah)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Item.NamaBelakang)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Item.Pekerjaan)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Item.Alamat)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = Item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = Item.Id })
+
+                </td>
+            </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</body>
+
+
+</html>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $('#datatable1').dataTable({
+        });
+    </script>
+}
